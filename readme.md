@@ -71,7 +71,7 @@ VERY IMPORTANT: give the data source a proper name so you don't have to go throu
 #### URL
 For `Prometheus server URL`, set the URL you're pushing data to, and by the help of a crystal ball or the nearest oracle, know that the URL you're pulling from just happens to be `https://prometheus-prod-39-prod-eu-north-0.grafana.net/api/prom` (if you're pushing to `eu-north` for example).
 
-Then, because this is Grafana, you need to manually enable `metrics:read`. Go back to `grafana.com`, under `My account`, find `Access policies`, find your influxDB policy, press edit and add `metrics:read`.
+Then, because this is Grafana, you need to manually enable `metrics:read`. Go back to `grafana.com`, under `My account`, find `Access policies`, find your influxDB policy, press edit and add `metrics:read`. It will tell you it's a security risk, but using Grafana is a risk to your health and wellbeing. 
 
 #### Authentication
 Select `Basic Authentication`, `Username` is your arbitrary number string, not your actual username. It's Grafana after all! `Password` would be your API key out of unknown reasons.
