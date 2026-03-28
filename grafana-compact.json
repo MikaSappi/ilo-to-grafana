@@ -590,7 +590,7 @@
                     "group": "prometheus",
                     "kind": "DataQuery",
                     "spec": {
-                      "editorMode": "builder",
+                      "editorMode": "code",
                       "expr": "ilo_esxi_snmp_uptime{agent_host=\"$host\"} / 1000",
                       "format": "table",
                       "range": true
@@ -636,11 +636,13 @@
                     "excludeByName": {
                       "Time": true,
                       "__name__": true,
+                      "__proxy_source__": true,
                       "agent_host": true,
                       "host": true,
                       "instance": true,
                       "job": true
                     },
+                    "includeByName": {},
                     "indexByName": {
                       "Time": 0,
                       "Value #A": 6,
