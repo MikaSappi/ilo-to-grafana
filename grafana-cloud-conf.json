@@ -3423,13 +3423,19 @@
                             "2": {
                               "index": 1,
                               "text": "Not Redundant"
-                            },
-                            "3": {
+                            }
+                          },
+                          "type": "value"
+                        },
+                        {
+                          "options": {
+                            "from": 3,
+                            "result": {
                               "index": 2,
                               "text": "Redundant"
                             }
                           },
-                          "type": "value"
+                          "type": "range"
                         }
                       ]
                     },
