@@ -3030,8 +3030,8 @@
                     "group": "prometheus",
                     "kind": "DataQuery",
                     "spec": {
-                      "editorMode": "code",
-                      "expr": "avg(ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"})",
+                      "editorMode": "builder",
+                      "expr": "sum(ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"}) / clamp_min((count(ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"})-1), 1)",
                       "legendFormat": "Fan Redundancy",
                       "range": true
                     },
@@ -3251,13 +3251,19 @@
                             "2": {
                               "index": 1,
                               "text": "Not Redundant"
-                            },
-                            "3": {
+                            }
+                          },
+                          "type": "value"
+                        },
+                        {
+                          "options": {
+                            "from": 3,
+                            "result": {
                               "index": 2,
                               "text": "Redundant"
                             }
                           },
-                          "type": "value"
+                          "type": "range"
                         }
                       ]
                     },
@@ -4192,7 +4198,7 @@
     "snmp"
   ],
   "timeSettings": {
-    "autoRefresh": "1m",
+    "autoRefresh": "5s",
     "autoRefreshIntervals": [
       "5s",
       "10s",
@@ -4206,7 +4212,7 @@
       "1d"
     ],
     "fiscalYearStartMonth": 0,
-    "from": "now-6h",
+    "from": "now-30m",
     "hideTimepicker": false,
     "timezone": "browser",
     "to": "now"
