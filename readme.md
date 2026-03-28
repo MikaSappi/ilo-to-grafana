@@ -4,6 +4,8 @@ This repository contains the JSON configuration file for Grafana Cloud, as well 
 
 Telegraf has some dependencies, please look at `sudo journalctl -f -u telegraf.service`. It will tell.
 
+<img width="2500" height="1483" alt="Screenshot 2026-03-28 at 14 30 24" src="https://github.com/user-attachments/assets/fd256fba-9ee9-499b-87a9-061f6344ae2e" />
+
 ## `output.conf`
 This file contains the information you need to push data to Grafana Cloud.
 
