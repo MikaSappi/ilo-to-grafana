@@ -1245,7 +1245,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "code",
-                      "expr": "ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"}",
+                      "expr": "sum(ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"}) / clamp_min((count(ilo_esxi_snmp_flt_tol_fan_redundant{agent_host=\"${host}\"})-1), 1)",
                       "format": "table",
                       "range": true
                     },
