@@ -675,7 +675,7 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "code",
-                      "expr": "ilo_esxi_snmp_uptime{agent_host=\"${host}\"}",
+                      "expr": "ilo_esxi_snmp_uptime{agent_host=\"${host}\"} / 1000",
                       "format": "table",
                       "range": true
                     },
