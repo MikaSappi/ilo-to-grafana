@@ -402,7 +402,7 @@
                     "mode": "none"
                   },
                   "thresholdsStyle": {
-                    "mode": "off"
+                    "mode": "dashed"
                   }
                 },
                 "min": 0,
@@ -414,8 +414,16 @@
                       "value": 0
                     },
                     {
+                      "color": "yellow",
+                      "value": 25
+                    },
+                    {
+                      "color": "orange",
+                      "value": 28
+                    },
+                    {
                       "color": "red",
-                      "value": 80
+                      "value": 31
                     }
                   ]
                 },
@@ -477,8 +485,32 @@
                 }
               }
             ],
-            "queryOptions": {},
-            "transformations": []
+            "queryOptions": {
+              "interval": "5s"
+            },
+            "transformations": [
+              {
+                "kind": "filterByValue",
+                "spec": {
+                  "id": "filterByValue",
+                  "options": {
+                    "filters": [
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Current Reading"
+                      }
+                    ],
+                    "match": "any",
+                    "type": "exclude"
+                  }
+                }
+              }
+            ]
           }
         },
         "description": "",
@@ -804,7 +836,38 @@
               }
             ],
             "queryOptions": {},
-            "transformations": []
+            "transformations": [
+              {
+                "kind": "filterByValue",
+                "spec": {
+                  "id": "filterByValue",
+                  "options": {
+                    "filters": [
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Power Supply: 1"
+                      },
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Power Supply: 2"
+                      }
+                    ],
+                    "match": "any",
+                    "type": "exclude"
+                  }
+                }
+              }
+            ]
           }
         },
         "description": "",
@@ -881,10 +944,10 @@
               },
               "legend": {
                 "calcs": [
-                  "min",
                   "max",
                   "mean",
-                  "lastNotNull"
+                  "lastNotNull",
+                  "min"
                 ],
                 "displayMode": "table",
                 "placement": "bottom",
@@ -1277,7 +1340,7 @@
                               "text": "Other"
                             },
                             "2": {
-                              "color": "dark-red",
+                              "color": "transparent",
                               "index": 1,
                               "text": "Not Redundant"
                             },
@@ -4198,7 +4261,7 @@
     "snmp"
   ],
   "timeSettings": {
-    "autoRefresh": "5s",
+    "autoRefresh": "1m",
     "autoRefreshIntervals": [
       "5s",
       "10s",
@@ -4212,7 +4275,7 @@
       "1d"
     ],
     "fiscalYearStartMonth": 0,
-    "from": "now-30m",
+    "from": "now-1h",
     "hideTimepicker": false,
     "timezone": "browser",
     "to": "now"

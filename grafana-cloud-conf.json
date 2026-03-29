@@ -479,7 +479,7 @@
                     "mode": "none"
                   },
                   "thresholdsStyle": {
-                    "mode": "off"
+                    "mode": "dashed"
                   }
                 },
                 "min": 0,
@@ -491,8 +491,16 @@
                       "value": 0
                     },
                     {
+                      "color": "yellow",
+                      "value": 25
+                    },
+                    {
+                      "color": "orange",
+                      "value": 28
+                    },
+                    {
                       "color": "red",
-                      "value": 80
+                      "value": 31
                     }
                   ]
                 },
@@ -558,8 +566,32 @@
                 }
               }
             ],
-            "queryOptions": {},
-            "transformations": []
+            "queryOptions": {
+              "interval": "5s"
+            },
+            "transformations": [
+              {
+                "kind": "filterByValue",
+                "spec": {
+                  "id": "filterByValue",
+                  "options": {
+                    "filters": [
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Current Reading"
+                      }
+                    ],
+                    "match": "any",
+                    "type": "exclude"
+                  }
+                }
+              }
+            ]
           }
         },
         "description": "",
@@ -894,7 +926,38 @@
               }
             ],
             "queryOptions": {},
-            "transformations": []
+            "transformations": [
+              {
+                "kind": "filterByValue",
+                "spec": {
+                  "id": "filterByValue",
+                  "options": {
+                    "filters": [
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Power Supply: 1"
+                      },
+                      {
+                        "config": {
+                          "id": "equal",
+                          "options": {
+                            "value": "0"
+                          }
+                        },
+                        "fieldName": "Power Supply: 2"
+                      }
+                    ],
+                    "match": "any",
+                    "type": "exclude"
+                  }
+                }
+              }
+            ]
           }
         },
         "description": "",
